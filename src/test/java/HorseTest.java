@@ -27,7 +27,7 @@ public class HorseTest {
     }
 
     @Test
-    public void constFirstArgNotNull() {
+    public void constNameArgNotNull() {
 
         assertThrows(IllegalArgumentException.class, () -> {
             new Horse(null, 3, 4);
@@ -36,7 +36,7 @@ public class HorseTest {
 
 
     @Test
-    public void constSecondArgNotNullText() {
+    public void constNameArgNotNullText() {
 
         Exception e = assertThrows(IllegalArgumentException.class, () -> {
             new Horse(null, 3, 4);
@@ -48,7 +48,7 @@ public class HorseTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"", "\n", "\t", "   "})
-    public void constSecondArgNotNullText(String text) {
+    public void constSpeedArgNotNullText(String text) {
         Exception e = assertThrows(IllegalArgumentException.class, () -> {
             new Horse(text, 3, 4);
         });
@@ -64,14 +64,14 @@ public class HorseTest {
     }
 
     @Test
-    public void negativeSecondArgException() {
+    public void negativeSpeedArgException() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Horse("Speedy", -1, 4);
         });
     }
 
     @Test
-    public void negativeSecondArgExceptionText() {
+    public void negativeSpeedArgExceptionText() {
         assertEquals("Speed cannot be negative.",
                 assertThrows(IllegalArgumentException.class, () -> {
                     new Horse("Speedy", -1, 4);
@@ -79,14 +79,14 @@ public class HorseTest {
     }
 
     @Test
-    public void negativeThirdArgException() {
+    public void negativeDistanceArgException() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Horse("Speedy", 1, -3);
         });
     }
 
     @Test
-    public void negativeThirdArgExceptionText() {
+    public void negativeDistanceArgExceptionText() {
         assertEquals("Distance cannot be negative.",
                 assertThrows(IllegalArgumentException.class, () -> {
                     new Horse("Speedy", 1, -3);
